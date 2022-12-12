@@ -28,4 +28,20 @@ no_quotes=re.findall('“(.+?)”',data)
 print("Number of the quotes in the corpus is : ",len(no_quotes))
 no_hypen=re.findall('[a-zA-Z0-9]?-[a-zA-Z0-9]',data)
 print("Number of the hypens in the corpus is : ",len(no_hypen))
+no_digit=re.findall('\d',data)
+print("Number of the numbers in the corpus is : ",len(no_digit))
+
+res = data.split()
+word_vowel=[]
+for y in res:  
+    no_vowel=re.search('^[aeiouAEIOU][A-Za-z0-9_]+',y)
+    # print(no_vowel)
+    if(no_vowel!=None):  
+         word_vowel.append(no_vowel.group())
+print('The words starting with vowels are : ',word_vowel[:20])  
+romans=[]
+for y in res: 
+    no_roman=re.search('^M{0,3}(CM|CD|D?C{0,3})?(XC|XL|L?X{0,3})?(IX|IV|V?I{0,3})?$',y)
+    print(no_roman)
+
 f.close()
