@@ -39,7 +39,7 @@ for y in res:
     # print(no_vowel)
     if(no_vowel!=None):  
          word_vowel.append(no_vowel.group())
-print('The words starting with vowels are : ',word_vowel[:20])  
+print('The words starting with vowels are : ',word_vowel[:40])  
 romans=[]
 for y in res: 
     no_roman=re.match('^M{0,3}(CM|CD|D?C{0,3})?(XC|XL|L?X{0,3})?(IX|IV|V?I{0,3})?$',y)
@@ -49,3 +49,29 @@ print('The roman numbers in corpus are : ',set(romans))
 f.close()
 
 #Task B
+phh="412-555-1212"
+if re.search("[0-9]{3}-[0-9]{3}-[0-9]{4}", phh):
+    print("Valid phone number")
+
+
+email = '''Anirudh@gmail.com
+Anirudh @ com
+AC .com
+123 @.com
+'''
+ 
+print("\n\nEmail Matches: ", len(re.findall("[a-zA-Z0-9_._%+-]{1,20}@[a-zA-Z0-9_.-]{2,20}.[A-Za-z]{2,3}", email)))
+
+import urllib.request
+ 
+url = "http://www.summet.com/dmsi/html/codesamples/addresses.html"
+ 
+response = urllib.request.urlopen(url)
+ 
+html = response.read()
+ 
+htmlStr = html.decode()
+pdata = re.findall("\(\d{3}\) \d{3}-\d{4}", htmlStr)
+ 
+for item in pdata:
+    print(item)
