@@ -1,4 +1,5 @@
 import re
+#Task A
 f = open("task1.txt", "r", encoding="utf8")
 count_the=0
 for x in f:
@@ -41,7 +42,10 @@ for y in res:
 print('The words starting with vowels are : ',word_vowel[:20])  
 romans=[]
 for y in res: 
-    no_roman=re.search('^M{0,3}(CM|CD|D?C{0,3})?(XC|XL|L?X{0,3})?(IX|IV|V?I{0,3})?$',y)
-    print(no_roman)
-
+    no_roman=re.match('^M{0,3}(CM|CD|D?C{0,3})?(XC|XL|L?X{0,3})?(IX|IV|V?I{0,3})?$',y)
+    if(no_roman!=None):
+        romans.append(y)
+print('The roman numbers in corpus are : ',set(romans))
 f.close()
+
+#Task B
